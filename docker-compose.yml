@@ -1,0 +1,9 @@
+services:
+  bot:
+    build: .
+    restart: unless-stopped
+    env_file:
+      - .env
+    environment:
+      SEARCH_LIMIT: "${SEARCH_LIMIT:-6}"
+      DATA_DIR: "${DATA_DIR:-/app/data}"
