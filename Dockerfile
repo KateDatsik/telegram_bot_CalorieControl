@@ -9,6 +9,7 @@ COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
 COPY app ./app
+COPY main.py ./main.py
 COPY data ./data
 
 ENV DATA_DIR=/app/data

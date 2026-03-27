@@ -7,3 +7,14 @@ services:
     environment:
       SEARCH_LIMIT: "${SEARCH_LIMIT:-6}"
       DATA_DIR: "${DATA_DIR:-/app/data}"
+    volumes:
+      - ./data:/app/data
+
+  scraper:
+    build: .
+    profiles: ["tools"]
+    command: python main.py
+    environment:
+      PYTHONUNBUFFERED: "1"
+    volumes:
+      - ./:/app
